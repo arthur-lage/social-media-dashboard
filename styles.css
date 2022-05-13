@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --youtube: hsl(348, 97%, 39%);
+}
+
+html {
+  font-size: 62.5%;
+  font-weight: 400;
+}
+
+body {
+  --background: hsl(225, 100%, 98%);
+  --top-background: hsl(225, 100%, 98%);
+  --card-background: hsl(227, 47%, 96%);
+  --text-primary: hsl(230, 17%, 14%);
+  --text-secondary: hsl(228, 12%, 44%);
+  --toggle-theme: hsl(230, 22%, 74%);
+  --toggle-ball: hsl(225, 100%, 98%);
+
+  background: var(--background);
+  transition: 0.2s ease;
+}
+
+body.dark {
+  --background: hsl(230, 17%, 14%);
+  --top-background: hsl(232, 19%, 15%);
+  --card-background: hsl(228, 28%, 20%);
+  --text-primary: hsl(0, 0%, 100%);
+  --text-secondary: hsl(228, 34%, 66%);
+  --toggle-theme: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --toggle-ball: hsl(232, 19%, 15%);
+}
+
+header {
+  background: var(--top-background);
+  transition: 0.2s ease;
+}
+
+.header-content {
+  padding: 5rem 0 20rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+header .left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+header .left h1 {
+  transition: 0.2s ease;
+  color: var(--text-primary);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+header .left h3 {
+  font-weight: 700;
+  transition: 0.2s ease;
+  font-size: 1.6rem;
+  color: var(--text-secondary);
+}
+
+header .theme-toggler-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  font-size: 1.4rem;
+  transition: 0.2s ease;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+header .theme-toggler-wrapper .theme-toggler {
+  position: relative;
+  transition: 0.2s ease;
+  background: var(--toggle-theme);
+  width: 5rem;
+  cursor: pointer;
+  height: 2.6rem;
+  border-radius: 50rem;
+}
+
+header .theme-toggler-wrapper .theme-toggler .ball {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  background: var(--toggle-ball);
+  transition: 0.3s ease;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+body.dark header .theme-toggler-wrapper .theme-toggler .ball {
+  left: calc(100% - 2rem - 3px);
+}
+
+main {
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: -13.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main .social-media {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main .social-media .social-media-card {
+  width: 25rem;
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease;
+  flex-direction: column;
+  background: var(--card-background);
+  padding: 2.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+main .social-media .social-media-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+}
+
+main .social-media .social-media-card.facebook::after {
+  background: var(--facebook);
+}
+
+main .social-media .social-media-card.twitter::after {
+  background: var(--twitter);
+}
+
+main .social-media .social-media-card.instagram::after {
+  background: var(--instagram);
+}
+
+main .social-media .social-media-card.youtube::after {
+  background: var(--youtube);
+}
+
+main .social-media .social-media-card .icon-and-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: 0.2s ease;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+main .social-media .social-media-card .followers-count {
+  font-size: 4.8rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  transition: 0.2s ease;
+  color: var(--text-primary);
+}
+
+main .social-media .social-media-card .followers-text {
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  transition: 0.2s ease;
+  color: var(--text-secondary);
+}
+
+main .social-media .social-media-card .new-followers {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+main .social-media .social-media-card .new-followers.up {
+  color: var(--lime-green);
+  transition: 0.2s ease;
+}
+
+main .social-media .social-media-card .new-followers.down {
+  color: var(--bright-red);
+  transition: 0.2s ease;
+}
+
+main .overview {
+  display: flex;
+  flex-direction: column;
+}
+
+main .overview .title {
+  margin: 4rem 0 2rem 0;
+  font-size: 2.4rem;
+  color: var(--text-primary);
+}
+
+main .overview .cards {
+  display: flex;
+  align-items: center;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
